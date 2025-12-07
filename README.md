@@ -518,3 +518,4 @@ For questions or support, please contact:
 *Last Updated: December 7, 2025*  
 *Version: 1.0*  
 *Status: Ready for Development*
+# tarento-copilot
