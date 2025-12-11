@@ -46,6 +46,16 @@ class Settings(BaseSettings):
     gemini_api_key: str = ""
     gemini_model: str = "gemini-2.5-pro"
     
+    # Google Agent Development Kit
+    google_adk_enabled: bool = True
+    google_adk_cache_threshold: int = 100
+    google_adk_max_tokens: int = 4096
+    google_adk_temperature: float = 0.7
+    
+    # Google Cloud
+    google_cloud_project: str = ""
+    google_cloud_location: str = "us-central1"
+    
     # Logging
     log_level: str = "INFO"
     

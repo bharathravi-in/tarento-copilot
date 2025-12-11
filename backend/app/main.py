@@ -6,6 +6,7 @@ Initializes the application with routes, middleware, and configuration
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
+from app.api.v1 import agents
 
 # Create FastAPI application
 app = FastAPI(
@@ -43,11 +44,8 @@ async def health_check():
     }
 
 
-# API v1 routes will be included here
-# from app.api.v1 import api
-
-# Include API v1 routes
-# app.include_router(api.router, prefix=settings.api_v1_str)
+# Include Google ADK Agents API routes
+app.include_router(agents.router, prefix=settings.api_v1_str)
 
 
 if __name__ == "__main__":

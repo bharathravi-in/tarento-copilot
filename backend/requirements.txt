@@ -29,13 +29,21 @@ qdrant-client==2.7.2
 redis==5.0.1
 
 # LLM & AI
-google-generativeai==0.3.0
+google-generativeai==0.5.0
+google-ai-generativelanguage==0.4.0
 langchain==0.1.0
 langchain-community==0.0.8
 langchain-google-genai==0.0.7
+google-api-core==2.15.0
+google-auth==2.27.0
+google-cloud-core==2.4.1
+grpcio==1.60.0
+protobuf==4.25.1
 
 # Telemetry & Observability
 opik==0.2.10
+google-cloud-logging==3.8.0
+google-cloud-trace==1.11.1
 
 # Utilities
 python-dotenv==1.0.0
