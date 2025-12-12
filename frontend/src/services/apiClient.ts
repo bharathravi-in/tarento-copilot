@@ -16,18 +16,22 @@ function createApiClient(): AxiosInstance {
   const client = axios.create({
     baseURL: config.api.baseURL,
     timeout: config.api.timeout,
-    headers: {
-      'Content-Type': 'application/json',
-    },
   });
 
-  // Request interceptor: Add auth token
+  // Request interceptor: Add auth token and handle content type
   client.interceptors.request.use(
     (cfg: InternalAxiosRequestConfig) => {
       const token = localStorage.getItem(TOKEN_KEY);
       if (token) {
         cfg.headers.Authorization = `Bearer ${token}`;
       }
+      
+      // Don't override content-type for FormData (multipart/form-data)
+      // Axios will set it automatically with the boundary
+      if (!(cfg.data instanceof FormData)) {
+        cfg.headers['Content-Type'] = 'application/json';
+      }
+      
       logger.debug(`[${cfg.method?.toUpperCase()}] ${cfg.url}`);
       return cfg;
     },

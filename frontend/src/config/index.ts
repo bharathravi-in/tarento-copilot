@@ -6,7 +6,7 @@ export const config = {
   },
   app: {
     name: import.meta.env.VITE_APP_NAME || 'Tarento Copilot',
-    logLevel: (import.meta.env.VITE_LOG_LEVEL || 'info') as 'debug' | 'info' | 'warn' | 'error',
+    logLevel: (import.meta.env.VITE_LOG_LEVEL || 'INFO').toUpperCase() as 'DEBUG' | 'INFO' | 'WARN' | 'ERROR',
   },
 };
 
@@ -26,7 +26,9 @@ export const API_ENDPOINTS = {
   documents: {
     list: '/documents',
     create: '/documents',
+    upload: '/documents/upload',
     get: (id: string) => `/documents/${id}`,
+    download: (id: string) => `/documents/${id}/download`,
     update: (id: string) => `/documents/${id}`,
     delete: (id: string) => `/documents/${id}`,
     search: {

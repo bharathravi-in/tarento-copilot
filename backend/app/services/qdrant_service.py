@@ -78,20 +78,7 @@ class QdrantService:
                 vectors_config=VectorParams(
                     size=vector_size,
                     distance=Distance.COSINE
-                ),
-                optimizers_config={
-                    "default_segment_number": 2,
-                    "min_segment_number": 1,
-                    "max_segment_number": 4,
-                    "inactive_segment_number": 1,
-                    "inactive_collection_threshold": 20000,
-                    "active_collection_threshold": 20000,
-                    "segment_number_limit": 4,
-                    "snapshots_path": None,
-                    "indexing_threshold": 20000,
-                    "flush_interval_sec": 10,
-                    "max_optimization_threads": 1,
-                }
+                )
             )
             
             logger.info(f"Collection '{collection_name}' created successfully")
@@ -307,9 +294,9 @@ class QdrantService:
             return {
                 "name": collection_name,
                 "points_count": info.points_count,
-                "vectors_count": info.vectors_count,
-                "disk_data_size": info.disk_data_size,
-                "disk_index_size": info.disk_index_size
+                "segments_count": info.segments_count,
+                "indexed_vectors_count": info.indexed_vectors_count,
+                "status": info.status
             }
         except Exception as e:
             logger.error(f"Error getting collection info: {str(e)}")

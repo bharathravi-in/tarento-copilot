@@ -13,9 +13,11 @@ import { config } from './config'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { Layout } from './components/Layout'
 import Dashboard from './pages/Dashboard'
+import { Documents } from './pages/Documents'
+import { DocumentDetail } from './pages/DocumentDetail'
+import { DocumentEdit } from './pages/DocumentEdit'
 import {
   Conversations,
-  Documents,
   Agents,
   Search,
   Profile,
@@ -57,6 +59,8 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/conversations" element={<Conversations />} />
                   <Route path="/documents" element={<Documents />} />
+                  <Route path="/documents/:id" element={<DocumentDetail />} />
+                  <Route path="/documents/:id/edit" element={<DocumentEdit />} />
                   <Route path="/agents" element={<Agents />} />
                   <Route path="/search" element={<Search />} />
                   <Route path="/profile" element={<Profile />} />

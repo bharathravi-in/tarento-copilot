@@ -33,11 +33,10 @@ export interface RefreshTokenRequest {
 
 // Generic response types
 export interface ListResponse<T> {
-  items: T[];
+  data: T[];
   total: number;
-  page: number;
-  page_size: number;
-  total_pages: number;
+  skip: number;
+  limit: number;
 }
 
 export interface PaginationParams {
@@ -55,6 +54,10 @@ export interface Document {
   content: string;
   source: string;
   tags: string[];
+  document_type: string;
+  file_name?: string;
+  file_path?: string;
+  mime_type?: string;
   organization_id: string;
   created_by: string;
   created_at: string;

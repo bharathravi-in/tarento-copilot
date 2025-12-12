@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import type { FC } from 'react'
 
 export const Conversations: FC = () => (
   <div style={{ padding: '20px' }}>

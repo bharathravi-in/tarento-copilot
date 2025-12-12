@@ -7,12 +7,17 @@ export interface ApiErrorResponse {
 }
 
 export class ApiError extends Error {
+  declare public status: number;
+  declare public details?: unknown;
+
   constructor(
-    public status: number,
-    public message: string,
-    public details?: unknown
+    status: number,
+    message: string,
+    details?: unknown
   ) {
     super(message);
+    this.status = status;
+    this.details = details;
     this.name = 'ApiError';
   }
 }
@@ -25,11 +30,14 @@ export class NetworkError extends Error {
 }
 
 export class ValidationError extends Error {
+  declare public fields: Record<string, string[]>;
+
   constructor(
-    public fields: Record<string, string[]>,
+    fields: Record<string, string[]>,
     message: string = 'Validation failed'
   ) {
     super(message);
+    this.fields = fields;
     this.name = 'ValidationError';
   }
 }

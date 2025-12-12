@@ -1,4 +1,5 @@
-import { FC, useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import type { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authService } from '../services/authService'
 import { logger } from '../utils/logger'

@@ -1,4 +1,5 @@
-import { FC, ReactNode, useState } from 'react'
+import { useState } from 'react'
+import type { FC, ReactNode } from 'react'
 import { Sidebar } from './Sidebar'
 import { Header } from './Header'
 import './Layout.css'
@@ -30,7 +31,7 @@ export const Layout: FC<LayoutProps> = ({
   return (
     <div className="layout">
       {showSidebar && (
-        <Sidebar collapsed={sidebarCollapsed} onToggle={handleSidebarToggle} />
+        <Sidebar collapsed={sidebarCollapsed} />
       )}
 
       <div

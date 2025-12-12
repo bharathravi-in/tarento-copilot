@@ -1,46 +1,38 @@
-import { FC, ReactNode } from 'react'
+import type { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authService } from '../services/authService'
 import './Sidebar.css'
-
-interface NavItem {
-  label: string
-  icon: string
-  path: string
-  badge?: number
-}
 
 const NAV_SECTIONS = [
   {
     title: 'Main',
     items: [
-      { label: 'Dashboard', icon: '📊', path: '/dashboard' },
-      { label: 'Conversations', icon: '💬', path: '/conversations' },
+      { label: 'Dashboard', icon: '📊', path: '/dashboard', badge: undefined },
+      { label: 'Conversations', icon: '💬', path: '/conversations', badge: undefined },
     ],
   },
   {
     title: 'Intelligence',
     items: [
-      { label: 'Documents', icon: '📄', path: '/documents' },
-      { label: 'Agents', icon: '🤖', path: '/agents' },
-      { label: 'Search', icon: '🔍', path: '/search' },
+      { label: 'Documents', icon: '📄', path: '/documents', badge: undefined },
+      { label: 'Agents', icon: '🤖', path: '/agents', badge: undefined },
+      { label: 'Search', icon: '🔍', path: '/search', badge: undefined },
     ],
   },
   {
     title: 'Settings',
     items: [
-      { label: 'Organization', icon: '🏢', path: '/organization' },
-      { label: 'Profile', icon: '👤', path: '/profile' },
+      { label: 'Organization', icon: '🏢', path: '/organization', badge: undefined },
+      { label: 'Profile', icon: '👤', path: '/profile', badge: undefined },
     ],
   },
 ]
 
 interface SidebarProps {
   collapsed?: boolean
-  onToggle?: () => void
 }
 
-export const Sidebar: FC<SidebarProps> = ({ collapsed = false, onToggle }) => {
+export const Sidebar: FC<SidebarProps> = ({ collapsed = false }) => {
   const navigate = useNavigate()
   const user = authService.getCurrentUser()
 
